@@ -1,0 +1,146 @@
+
+.menu {
+  padding: 40px;
+  color: #333;
+  text-align: center
+}
+.menu-card h2 {
+  color: #222222;
+}
+
+.menu-card p {
+  color: #444444;
+}
+
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.menu-card {
+  padding: 25px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.menu-card h3 {
+  color: #e67e22;
+}
+
+@media (max-width: 600px) {
+  .menu-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu input {
+    padding: 12px;
+    width: 250px;
+    margin: 20px;
+    border: 1px solid #cccccc76;
+    border-radius: 5px;
+}
+
+.categories {
+    margin-bottom: 25px;
+}
+
+.categories button {
+  padding: 10px 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.categories button:hover {
+  background-color: orange;
+}
+.menu-card button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-card button:hover {
+  background-color: darkorange;
+}
+
+.cart {
+  margin-top: 40px;
+  padding: 25px;
+  background-color: white;
+  color: black;
+  border-radius: 40px;
+}
+
+.cart h2 {
+  color: black;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-item button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  opacity: 0.8;
+}
+
+.order-type {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.order-type h2 {
+    color: Black;
+}
+
+.order-type button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-type button:hover {
+    background-color: darkorange;
+}
+
+.order-condirmation{
+  margin-top: 25px;
+  padding: 20px;
+  background-color: lightgreen;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+}
+.order-confirmation p {
+  color: white;
+}
+
+.cart h1{
+  color: black;
+}

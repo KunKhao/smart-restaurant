@@ -1,0 +1,45 @@
+
+.admin {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: white;
+    color: #222222;
+    border-radius: 10px;
+}
+
+.admin h1,
+.admin h2,
+.admin p {
+    color: #000000;
+}
+
+.admin form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.admin input {
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+.admin input::placeholder {
+    color: #ffffff;
+}
+
+.admin button {
+    padding: 10px 15px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin button:hover {
+    background-color: #c45d0a;
+}
