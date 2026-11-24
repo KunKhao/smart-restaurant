@@ -5,35 +5,43 @@ function Chatbot() {
     const [question, setQuestion] = useState("");
     const [messages, setMessages] = useState([]);
 
-    const answer = [
+    const answers = [
         {
             keywords: ["special", "today"],
-            answer: "Today's special is Chicken Alfredo for $18.99."
+            answer: "Welcome! Today's Thai menu includes Pad Thai for $16.99, Green Curry for $17.99, and Mango Sticky Rice for $9.99."
         },
         {
             keywords: ["vegetarian", "vegetable"],
-            answer: "We offer Vegetable Pasta, Margherita Pizza, and Garden Salad."
+            answer: "Our vegetarian options are Som Tam ($12.99), Mango Sticky Rice ($9.99), and Thai Milk Tea ($5.99)."
         },
         {
             keywords: ["recommend", "recommendation"],
-            answer: "Based on popular orders, we recommend our Chicken Alfredo."
+            answer: "We recommend Pad Thai ($16.99) if you enjoy noodles, or Green Curry ($17.99) if you like Thai curry!"
         },
         {
             keywords: ["gluten"],
-            answer: "Yes. We offer gluten-free pasta and selected salads."
+            answer: "Sorry, we don't currently have confirmed gluten-free information for our menu. Please ask our restaurant staff about ingredients."
         },
         {
-            keywords: ["dessert", "chocolate", "popular"],
-            answer: "Our Chocolate Lava Cake is our most popular dessert."
+            keywords: ["dessert", "chocolate", "sweet"],
+            answer: "Our dessert is Mango Sticky Rice ($9.99), made with sweet sticky rice, fresh mango, and coconut milk."
+        },
+        {
+            keywords: ["soup", "spicy"],
+            answer: "Try Tom Yum Goong ($14.99)! It is a spicy and sour shrimp soup with lemongrass."
+        },
+        {
+            keywords: ["drink", "beverage", "tea"],
+            answer: "We have Thai Milk Tea ($5.99), made with Thai tea, milk, and sugar."
         },
         {
             keywords: ["last time", "previous order", "ordered"],
-            answer: "Your previous order was Chicken Alfredo and Chocolate Lava Cake."
+            answer: "I cannot check your previous orders yet. Please visit your order history when that feature becomes available."
         }
     ];
 
     function sendMessage(event) {
-        event.prevemtDefault();
+        event.preventDefault();
 
         if (question.trim() === "")
             return;
@@ -52,8 +60,10 @@ function Chatbot() {
             { text: question, sender: "You" },
             { text: reply, sender: "AI" }
         ]);
+
         setQuestion("");
 
+    }
         return (
             <div className="chatbot">
                 <h2>Restaurant AI Assistant 🤖</h2>
@@ -79,6 +89,6 @@ function Chatbot() {
             </div>
         );
     }
-}
+
 
 export default Chatbot;

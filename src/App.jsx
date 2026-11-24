@@ -11,6 +11,9 @@ import Chatbot from "./components/Chatbot";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [reservations, setReservations] = useState([]);
+
 
   function addToCart(item) {
     const existingItem = cart.find(
@@ -53,13 +56,30 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu addToCart={addToCart} />} />
+        
         <Route path="/cart" element={<Cart 
           cart={cart} 
+          addToCart={addToCart}
           decreaseQuantity={decreaseQuantity} 
-          removeFromCart={removeFromCart} />} 
-        />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/admin" element={<Admin />} />
+          removeFromCart={removeFromCart} 
+          setOrders={setOrders} 
+        />} />
+
+        <Route path="/reservation" element={
+          <Reservation 
+            reservations = {reservations}
+            setReservations = {setReservations}
+        />} />
+
+        <Route path="/admin" element={
+          <Admin 
+            orders = {orders} 
+            setOrders = {setOrders}
+            reservations = {reservations}
+            setReservations = {setReservations} 
+          />
+        } />
+        
         <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </BrowserRouter>

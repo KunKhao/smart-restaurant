@@ -1,7 +1,7 @@
 import "./Reservation.css";
 import { useState } from "react";
 
-function Reservation() {
+function Reservation({ reservations, setReservations}) {
     const [name, setName] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -10,6 +10,17 @@ function Reservation() {
 
     function makeReservation(event) {
         event.preventDefault();
+
+        const newReservation = {
+            id: Date.now(),
+            name:name,
+            date: date,
+            time: time,
+            guests: Number(guests),
+            status: "Pending"
+        };
+
+        setReservations([...reservations, newReservation]);
         setReserved(true);
     }
 

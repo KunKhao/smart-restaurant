@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./Cart.css";
 
-function Cart({ cart, decreaseQuantity, addToCart, removeFromCart }) {
+function Cart({ cart, decreaseQuantity, addToCart, removeFromCart, setOrders }) {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [orderType, setOrderType] = useState("Pickup");
@@ -15,9 +15,23 @@ function Cart({ cart, decreaseQuantity, addToCart, removeFromCart }) {
     );
 
     function placeOrder(event) {
-        event.preventDefault();
-        setOrderPlaced(true);
-    }
+    event.preventDefault();
+
+    const newOrder = {
+        id: Date.now(),
+        name: name,
+        phone: phone,
+        orderType: orderType,
+        address: address,
+        items: [...cart],
+        total: total,
+        status: "Pending"
+    };
+
+    setOrders((previousOrders) => [...previousOrders, newOrder]);
+
+    setOrderPlaced(true);
+}
 
     return (
         <div className="cart">

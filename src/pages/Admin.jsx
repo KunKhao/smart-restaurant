@@ -2,7 +2,7 @@
 import { useState } from "react";
 import "./Admin.css";
 
-function Admin() {
+function Admin({orders, setOrders, reservations, setReservations}) {
     const [items, setItems] = useState([
         { id: 1, name: "Pad Thai", price: 16.99 },
         { id: 2, name: "Tom Yum Goong", price: 14.99 },
@@ -12,15 +12,16 @@ function Admin() {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
 
-    const [orders, setOrders] = useState([
-        { id: 1, customer: "John", food: "Pad Thai", status: "Pending" },
-        { id: 2, customer: "Sarah", food: "Green Curry", status: "Preparing" }
-    ]);
+    // const [orders, setOrders] = useState([
+    //     { id: 1, customer: "John", food: "Pad Thai", status: "Pending" },
+    //     { id: 2, customer: "Sarah", food: "Green Curry", status: "Preparing" }
+    // ]);
     
-    const [reservations, setReservations] = useState([
-        { id: 1, name: "John", date: "2026-11-16", time: "18:00", guests: 2, status: "Pending" },
-        { id: 2, name: "Sarah", date: "2026-11-17", time: "19:00", guests: 4, status: "Confirmed" }
-    ]);
+    // const [reservations, setReservations] = useState([
+    //     { id: 1, name: "John", date: "2026-11-16", time: "18:00", guests: 2, status: "Pending" },
+    //     { id: 2, name: "Sarah", date: "2026-11-17", time: "19:00", guests: 4, status: "Confirmed" }
+    // ]);
+    
     function addItem(event) {
         event.preventDefault();
 
@@ -119,15 +120,31 @@ function Admin() {
                 </div>
             ))}
             <h2>Manage Orders</h2>
-            {orders.map((order) => (
-                <div key={order.id}>
-                    <p>
-                        Order #{order.id} - {order.customer}
-                    </p>
+            {orders.length === 0 ? (
+                <p>No customer orders yet.</p>
+            ) : (
+                orders.map((order) => (
+                    <div key={order.id}>
+                        <h3>Order #{order.id}</h3>
 
-                    <p>Food: {order.food}</p>
+                        <p>Customer: {order.name}</p>
+                        <p>Phone: {order.phone}</p>
+                        <p>Order Type: {order.orderType}</p>
 
-                    <p>Status: {order.status}</p>
+                        {order.orderType === "Delivery" && (
+                            <p>Address: {order.address}</p>
+                        )}
+
+                        <p>Food:</p>
+
+                        {order.items.map((item) => (
+                            <p key={item.id}>
+                                {item.name} x {item.quantity}
+                            </p>
+                        ))}
+
+                        <p>Total: ${order.total.toFixed(2)}</p>
+                        <p>Status: {order.status}</p>
 
                     <select
                         value={order.status}
@@ -139,7 +156,8 @@ function Admin() {
                         <option value="Completed">Completed</option>
                     </select>
                 </div>
-            ))}
+            ))
+        )}
             <h2>Manage Reservations</h2>
 
             {reservations.map((reservation) => (
