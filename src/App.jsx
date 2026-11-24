@@ -7,6 +7,7 @@ import Menu from "./pages/Menu";
 import Reservation from "./pages/Reservation";
 import Cart from "./pages/Cart";
 import Admin from "./pages/Admin";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -59,6 +60,7 @@ function App() {
         />
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </BrowserRouter>
   );

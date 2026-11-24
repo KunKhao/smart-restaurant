@@ -12,6 +12,7 @@ function Navbar() {
                 <Link to="/cart">Cart</Link>
                 <Link to="/reservation">Reservation</Link>
                 <Link to="/admin">Admin</Link>
+                <Link to="/chatbot">Chatbot</Link>
             </div>
         </nav>
     );
